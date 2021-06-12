@@ -88,9 +88,11 @@ class ssd:
         self.dies[id_die].blocks[id_block].pages[id_page].program(data)
 
     def page_program_multi_plane(self, plane, id_block, id_page, data):
+        cnt = 0
         for i in range(self.size_ssd):
             if(plane[i] == 1):
-                self.dies[i].blocks[id_block].pages[id_page].program(data[i])
+                self.dies[i].blocks[id_block].pages[id_page].program(data[cnt])
+                cnt += 1
 
     def report_wear_level_map(self):
         for d in range(self.size_ssd):
